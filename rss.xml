@@ -8,10 +8,11 @@
         <author>
           <name>JoyseeKing</name>
         </author>
-        <description></description>
-        <language>en</language>
+        <description>这里面有好康的，比游戏还刺激</description>
+        <language>zh-CN</language>
         <pubDate>Thu, 09 Sep 2021 21:20:26 +0800</pubDate>
         <lastBuildDate>Thu, 09 Sep 2021 21:20:26 +0800</lastBuildDate>
+        <category term="JoyseeKing" />
         <item>
             <guid isPermalink="true">http://joyseeking.github.io/2021/09/09/Ubuntu_NodeJs%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%87%E7%BA%A7/</guid>
             <title>Ubuntu NodeJs安装与升级</title>

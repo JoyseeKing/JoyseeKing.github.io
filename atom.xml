@@ -9,6 +9,7 @@
       <name>JoyseeKing</name>
     </author>
     <updated>2021-09-09T13:20:26.258Z</updated>
+    <category term="JoyseeKing" />
     <entry>
         <id>http://joyseeking.github.io/2021/09/09/Ubuntu_NodeJs%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%87%E7%BA%A7/</id>
         <title>Ubuntu NodeJs安装与升级</title>
