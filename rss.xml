@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>Power By Hexo</title>
+        <title>Powered By Hexo&amp;Shoka</title>
         <subtitle>JoyseeKingの妙妙屋</subtitle>
         <icon>http://joyseeking.github.io/images/favicon.ico</icon>
         <link>http://joyseeking.github.io</link>
         <author>
           <name>JoyseeKing</name>
         </author>
-        <description>这里面有好康的，比游戏还刺激</description>
+        <description>物联网云端高级开发工程师 理想主义者 分享一些技术及生活</description>
         <language>zh-CN</language>
         <pubDate>Tue, 13 Jun 2023 11:50:55 +0800</pubDate>
         <lastBuildDate>Tue, 13 Jun 2023 11:50:55 +0800</lastBuildDate>

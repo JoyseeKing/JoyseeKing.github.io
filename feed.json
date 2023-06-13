@@ -1,9 +1,9 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "Power By Hexo",
+    "title": "Powered By Hexo&Shoka",
     "subtitle": "JoyseeKingの妙妙屋",
     "icon": "http://joyseeking.github.io/images/favicon.ico",
-    "description": "这里面有好康的，比游戏还刺激",
+    "description": "物联网云端高级开发工程师 理想主义者 分享一些技术及生活",
     "home_page_url": "http://joyseeking.github.io",
     "items": [
         {
