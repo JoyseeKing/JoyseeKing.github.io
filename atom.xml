@@ -8,8 +8,19 @@
     <author>
       <name>JoyseeKing</name>
     </author>
-    <updated>2021-09-10T15:22:59.391Z</updated>
+    <updated>2023-06-13T03:38:12.572Z</updated>
     <category term="JoyseeKing" />
+    <entry>
+        <id>http://joyseeking.github.io/2023/06/13/Restart/</id>
+        <title></title>
+        <link rel="alternate" href="http://joyseeking.github.io/2023/06/13/Restart/"/>
+        <content type="html">&lt;h1 id=&#34;最近的一些想法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#最近的一些想法&#34;&gt;#&lt;/a&gt; 最近的一些想法&lt;/h1&gt;
+&lt;p&gt;真的想逃了 闲的发慌 开始投简历&lt;br /&gt;
+接下来会把 Notion 的笔记逐渐导到线上 有了 Notion 之后 MarkDown 真的不爱写了&lt;br /&gt;
+ Anyway 赶紧回北京吧&lt;/p&gt;
+</content>
+        <updated>2023-06-13T03:38:12.572Z</updated>
+    </entry>
     <entry>
         <id>http://joyseeking.github.io/2021/09/10/skywalking%E7%9A%84Docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/</id>
         <title>Docker内部署SkyWalking</title>

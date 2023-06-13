@@ -7,6 +7,14 @@
     "home_page_url": "http://joyseeking.github.io",
     "items": [
         {
+            "id": "http://joyseeking.github.io/2023/06/13/Restart/",
+            "url": "http://joyseeking.github.io/2023/06/13/Restart/",
+            "title": "",
+            "date_published": "2023-06-13T03:38:12.572Z",
+            "content_html": "<h1 id=\"最近的一些想法\"><a class=\"anchor\" href=\"#最近的一些想法\">#</a> 最近的一些想法</h1>\n<p>真的想逃了 闲的发慌 开始投简历<br />\n接下来会把 Notion 的笔记逐渐导到线上 有了 Notion 之后 MarkDown 真的不爱写了<br />\n Anyway 赶紧回北京吧</p>\n",
+            "tags": []
+        },
+        {
             "id": "http://joyseeking.github.io/2021/09/10/skywalking%E7%9A%84Docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/",
             "url": "http://joyseeking.github.io/2021/09/10/skywalking%E7%9A%84Docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2/",
             "title": "Docker内部署SkyWalking",
