@@ -8,7 +8,7 @@
     <author>
       <name>JoyseeKing</name>
     </author>
-    <updated>2023-06-14T13:02:34.634Z</updated>
+    <updated>2023-06-14T13:04:40.381Z</updated>
     <category term="JoyseeKing" />
     <entry>
         <id>http://joyseeking.github.io/2023/06/14/etcd_%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0/</id>
@@ -23,7 +23,7 @@
 &lt;p&gt;redis：redis 性能极强 但单机 redis 不具备 HA 分布式 redis 选举时会出现 master-slave 数据不同步的情况 会出现锁失效的情况&lt;/p&gt;
 &lt;p&gt;etcd：性能较 redis 弱 但是远强于 zk 方案  适合云原生环境部署 并且满足高可用 强一致性&lt;/p&gt;
 &lt;p&gt;基于 Zookeeper 临时节点：zookeeper 分布式锁&lt;/p&gt;
-&lt;p&gt;zk 方案实现了 CP 保证强一致性  不会出现锁失效的情况 但是牺牲了一致性 并且 zk 维护较为复杂不适合云原生方案&lt;/p&gt;
+&lt;p&gt;zk 方案实现了 CP 保证强一致性  不会出现锁失效的情况 但是牺牲了可用性 不满足 HA 并且 zk 维护较为复杂不适合云原生方案&lt;/p&gt;
 &lt;h1 id=&#34;分布式锁实现原理及etcd方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分布式锁实现原理及etcd方案&#34;&gt;#&lt;/a&gt; 分布式锁实现原理及 etcd 方案&lt;/h1&gt;
 &lt;p&gt;分布式实现主要依赖以下几个牵扯到锁的原理&lt;/p&gt;
 &lt;p&gt;1. 载体 例如 redis 的载体是 kv  zookeeper 使用的是临时的文件系统&lt;/p&gt;
@@ -44,7 +44,7 @@
         <category term="分布式" scheme="http://joyseeking.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" />
         <category term="中间件" scheme="http://joyseeking.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/%E4%B8%AD%E9%97%B4%E4%BB%B6/" />
         <category term="etcd" scheme="http://joyseeking.github.io/tags/etcd/" />
-        <updated>2023-06-14T13:02:34.634Z</updated>
+        <updated>2023-06-14T13:04:40.381Z</updated>
     </entry>
     <entry>
         <id>http://joyseeking.github.io/2023/06/14/skywalking%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</id>
