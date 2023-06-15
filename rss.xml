@@ -10,9 +10,71 @@
         </author>
         <description>物联网云端高级开发工程师 赛博理想主义者 代码是有温度的</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 14 Jun 2023 21:04:40 +0800</pubDate>
-        <lastBuildDate>Wed, 14 Jun 2023 21:04:40 +0800</lastBuildDate>
+        <pubDate>Thu, 15 Jun 2023 15:20:38 +0800</pubDate>
+        <lastBuildDate>Thu, 15 Jun 2023 15:20:38 +0800</lastBuildDate>
         <category term="JoyseeKing" />
+        <item>
+            <guid isPermalink="true">http://joyseeking.github.io/2023/06/15/2023K+%E5%B3%B0%E4%BC%9A%E4%B8%8A%E6%B5%B7%E7%AB%99%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/</guid>
+            <title>2023K+峰会上海简单记录</title>
+            <link>http://joyseeking.github.io/2023/06/15/2023K+%E5%B3%B0%E4%BC%9A%E4%B8%8A%E6%B5%B7%E7%AB%99%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/</link>
+            <category term="个人" scheme="http://joyseeking.github.io/categories/%E4%B8%AA%E4%BA%BA/" />
+            <category term="线下峰会" scheme="http://joyseeking.github.io/categories/%E4%B8%AA%E4%BA%BA/%E7%BA%BF%E4%B8%8B%E5%B3%B0%E4%BC%9A/" />
+            <category term="峰会纪要" scheme="http://joyseeking.github.io/tags/%E5%B3%B0%E4%BC%9A%E7%BA%AA%E8%A6%81/" />
+            <pubDate>Thu, 15 Jun 2023 15:20:38 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;llm大模型对软件行业影响&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#llm大模型对软件行业影响&#34;&gt;#&lt;/a&gt; LLM 大模型对软件行业影响&lt;/h1&gt;
+&lt;p&gt;类似 CopilotX GitHub Next 等代码辅助或 ChatGpt 等 LLM 大模型相关产品 现在主要左右还是知识平权 减少普通人获取知识成本 部分代码生成及辅助功能 会小范围冲击基层程序员就业&lt;/p&gt;
+&lt;p&gt;但对于软件工程全流程的需求沟通 需求确认妥协 代码架构设计 及基础设施设计等短期内别无法代替 业务专家职位永远无法替代 AI 减少了软件工程最后一英里的工作量&lt;/p&gt;
+&lt;p&gt;暗知识：LLM 始终是理解人写出来的代码 而想的永远比说出来的多 说出来比写出来的多 而理解也会比写出来的会打折扣&lt;/p&gt;
+&lt;h1 id=&#34;b站-混部-hpa-vpa等相关落地&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#b站-混部-hpa-vpa等相关落地&#34;&gt;#&lt;/a&gt; B 站 混部 HPA VPA 等相关落地&lt;/h1&gt;
+&lt;p&gt;混部：即线上用户业务与离线业务 Job 共同部署在一个物理节点运行 充分利用 CPU Memory 资源 降本增效 使用 kubelet 去拉取 pod agent 上报的实时指标 并反馈给指标 Controller 做分析对比 结合 kube-schedule 做相关副本数量调整&lt;/p&gt;
+&lt;p&gt;主要实现方式：对于内部指标做预估 在线上业务低峰期时 在线上集群 运行部分离线计算 Job （CPU 视频转码及大数据处理）提高资源使用率 并且不影响线上 SLO 稳定 分优先级对业务混部做干预 用 cgroup 做 Pod 业务隔离 防止干扰重要线上业务&lt;/p&gt;
+&lt;p&gt;GPU 混部：CUDA API 做 GPU 资源预测 将线上训练任务和 NVIDIA CUVID FFMPEG 编解码加速 任务做混部  训练任务预留 1-2GB 显存资源 为编解码任务预留资源&lt;/p&gt;
+&lt;p&gt;HPA ： 主要是会对部分实时指标做分析 如上游服务的 CPU QPS 等 然后做动态扩缩容&lt;/p&gt;
+&lt;p&gt;CronHPA：对阿里的 CronHPA 做了改进 对于历史指标做分析而不是单独的去按照日常规则直接扩缩容 防止部分不定时的业务高峰或闲时资源浪费&lt;/p&gt;
+&lt;p&gt;VPA：自己根据实时指标实现了动态资源 request 调整 显著提高了资源利用率&lt;/p&gt;
+&lt;h1 id=&#34;b站api-gateway实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#b站api-gateway实现&#34;&gt;#&lt;/a&gt; B 站 API Gateway 实现&lt;/h1&gt;
+&lt;p&gt;1）路由：不使用前缀匹配方式 指定到接口级别 效率高 在一定程度上从指标阶段能减少外界扫描干扰 但存在问题需要自行开发控制台 panel 隔离部门及业务避免路由过多难以配置的问题&lt;/p&gt;
+&lt;p&gt;2）负载均衡：使用 P2C 方式 依赖简单的单独的一个指标实现 效率及可用性远大与 RR 及 WRR 方案&lt;/p&gt;
+&lt;p&gt;3）服务降级熔断：根据指标进行降级 减少影响面 服务完全不可用 部分请求用会启用兜底的历史请求 避免用户完全不可用 Qurota 分布式限流方案 即通过有状态的 一个容量池 下发每一个 pod 接口的限流容量 pod 本身根据自身的限流上线去做限流熔断 避免 redis 等分布式方案打爆的问题&lt;/p&gt;
+&lt;p&gt;4）grpc 管理：protobuf 文件使用统一 git 仓代理保存 并使用统一的 protobuild 方式保证文件统一&lt;/p&gt;
+&lt;h1 id=&#34;云闪付可观测性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#云闪付可观测性&#34;&gt;#&lt;/a&gt; 云闪付可观测性&lt;/h1&gt;
+&lt;p&gt;整体比较简单易懂 但 ELK（面向运维） 和 Loki（轻量 效率高 面向开发） 日志方案 做混用 各司其职 减少 ELK 资源占用 概念比较新颖&lt;/p&gt;
+&lt;h1 id=&#34;intel-servicemesh&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#intel-servicemesh&#34;&gt;#&lt;/a&gt; Intel ServiceMesh&lt;/h1&gt;
+&lt;p&gt;主要是社区宣传及介绍 对于个人理解还可以 eBPF 相关 ServiceMesh 可能在未来会有巨大变革&lt;/p&gt;
+&lt;h1 id=&#34;软件质量及敏捷效能提升&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#软件质量及敏捷效能提升&#34;&gt;#&lt;/a&gt; 软件质量及敏捷效能提升&lt;/h1&gt;
+&lt;p&gt;1）测试与开发 需要注重问题与开发部门挂钩 在软件开发阶段及测试阶段 由开发人员及测试人员共同推进问题 mapping 图 多次积累 在不同项目中共同使用 提高测试效率及问题沟通效率&lt;/p&gt;
+&lt;p&gt;适用于当前所有的软件开发及测试 以下为实例&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;问题描述&lt;/th&gt;
+&lt;th&gt;漏洞等级&lt;/th&gt;
+&lt;th&gt;涉及部门（多级）&lt;/th&gt;
+&lt;th&gt;修复及改进方案&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;2）软件质量部门 监督软件开发及测试 并推进内部敏捷开发 定期开质量效能会议 对整体软件交付有良好把控 推进包括但不限于以下方案&lt;/p&gt;
+&lt;p&gt;tools：所有研发部门 利用 copilot x 等代码生成工具生成自己代码的覆盖单元测试 记录接口测试脚本 并集中提交至指定 git 仓库进行统一维护&lt;/p&gt;
+&lt;p&gt;codereview：在 preview 由专人对 feature 及 bugfix 相关代码进行 codereview&lt;/p&gt;
+&lt;p&gt;owner 意识 ：质量左移 即自身对软件漏洞做把控 不允许完全将软件质量问题交于测试部门兜底 对其他部门零信任 在软件交付用户前 对质量问题阻断&lt;/p&gt;
+&lt;p&gt;例如云端依赖 Devops 、多环境灰度、自动化、指标报警、 相关 SRE 、对于指定问题指定人员解决（专人专办）owner 自身问题 推进其他部门将软件交付测试前 阻断风险的意识&lt;/p&gt;
+&lt;p&gt;3）自动化测试介入&lt;/p&gt;
+&lt;p&gt;在测试阶段，需要多部门联动自动化测试 对相关 case 进行自动化覆盖 包括但不限于 python 脚本 UI 脚本 可以考虑由 AI 工具生成 Monkey 测试方案进行覆盖 由一般测试人员录制自动化测试脚本 并在多次回归测试利用脚本中提升效能&lt;/p&gt;
+&lt;p&gt;4）开源软件漏洞跟踪&lt;/p&gt;
+&lt;p&gt;各个部门对自己代码中使用的开源软件及版本进行记录 梳理开源软件 由软件质量监督部门 跟进 CVE 相关漏洞问题 避免出现类似 Log4Shell 相关零日漏洞造成的巨大影响&lt;/p&gt;
+&lt;p&gt;5）对部门及个人质量效能评分&lt;/p&gt;
+&lt;p&gt;部门将自己的质量及效能提升落地情况定时反馈 拒绝低效研发及测试&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://joyseeking.github.io/2023/06/14/etcd_%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0/</guid>
             <title>利用etcd实现分布式锁</title>
